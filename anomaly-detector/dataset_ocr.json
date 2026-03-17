@@ -1,0 +1,54 @@
+{
+    "documents": [
+        {
+            "id": "doc_001",
+            "document_type": "facture",
+            "ocr_text": "FACTURE N° F2026-001\nDate d'émission : 12/03/2026\n\nFournisseur : TECHSOLUTIONS SARL\nSIRET : 81234567800019\nTVA : FR52812345678\nAdresse : 24 rue des Entrepreneurs, 75012 Paris\n\nClient : DATA CORP\n\nDescription\nLicence logiciel annuel\n\nMontant HT : 1000.00 EUR\nTVA 20% : 200.00 EUR\nMontant TTC : 1200.00 EUR\n\nPaiement : virement bancaire\nIBAN : FR7612345987650123456789014"
+        },
+        {
+            "id": "doc_002",
+            "document_type": "facture",
+            "ocr_text": "FACTURE\nRef : INV-2026-884\nDate : 03/02/2026\n\nFournisseur : ALPHA CONSULTING\nSIRET : 51298765400031\nTVA : FR91512987654\n\nClient : DIGITAL SERVICES\n\nPrestation : Audit cybersécurité\n\nMontant HT : 3500 EUR\nTVA : 700 EUR\nMontant TTC : 4200 EUR\n\nAdresse fournisseur : 18 boulevard Haussmann 75009 Paris"
+        },
+        {
+            "id": "doc_003",
+            "document_type": "facture",
+            "ocr_text": "FACTURE\nNuméro : 2026-445\nDate : 18/01/2026\n\nEntreprise : BETA INDUSTRIES\nSIRET : 42345678900055\nTVA : FR32423456789\n\nClient : INFRA TECH\n\nPrestations : maintenance serveur\n\nMontant HT : 900 EUR\nTVA : 180 EUR\nMontant TTC : 1000 EUR\n\nPaiement sous 30 jours"
+        },
+        {
+            "id": "doc_004",
+            "document_type": "devis",
+            "ocr_text": "DEVIS\nNuméro : D-2026-009\nDate : 15/02/2026\n\nEntreprise : NETWORK EXPERT\nSIRET : 67894532100022\nTVA : FR67678945321\n\nClient : DATA CORP\n\nInstallation réseau entreprise\n\nPrix HT : 2500 EUR\nTVA : 500 EUR\nPrix TTC : 3000 EUR\n\nValidité du devis : 30 jours"
+        },
+        {
+            "id": "doc_005",
+            "document_type": "attestation_vigilance",
+            "ocr_text": "ATTESTATION DE VIGILANCE URSSAF\n\nEntreprise : TECHSOLUTIONS SARL\nSIRET : 81234567800019\n\nCette attestation certifie que l'entreprise est à jour de ses obligations sociales.\n\nDate émission : 05/01/2026\nDate expiration : 05/07/2026"
+        },
+        {
+            "id": "doc_006",
+            "document_type": "kbis",
+            "ocr_text": "EXTRAIT KBIS\n\nEntreprise : ALPHA CONSULTING\nForme juridique : SARL\nSIRET : 51298765400031\nAdresse : 18 boulevard Haussmann 75009 Paris\nDate immatriculation : 12/06/2015\nGreffe : Tribunal de commerce de Paris"
+        },
+        {
+            "id": "doc_007",
+            "document_type": "rib",
+            "ocr_text": "RELEVE D'IDENTITE BANCAIRE\n\nTitulaire : BETA INDUSTRIES\nSIRET : 42345678900055\nBanque : BNP PARIBAS\nIBAN : FR7612345987650123456789014\nBIC : BNPAFRPPXXX"
+        },
+        {
+            "id": "doc_008",
+            "document_type": "facture",
+            "ocr_text": "FACTURE\nNuméro : INV-778\nDate : 10/03/2026\n\nEntreprise : GAMMA SOLUTIONS\nSIRET : 99887766554433\nTVA : FR99998877665\n\nClient : INFRA TECH\n\nServices cloud\n\nMontant HT : 1200 EUR\nTVA : 240 EUR\nMontant TTC : 1440 EUR\n\nAdresse : 14 avenue Victor Hugo, 75016 Paris"
+        },
+        {
+            "id": "doc_009",
+            "document_type": "attestation_vigilance",
+            "ocr_text": "ATTESTATION DE VIGILANCE\nURSSAF\n\nEntreprise : NETWORK EXPERT\nSIRET : 67894532100022\n\nDocument certifiant la régularité de la situation sociale.\n\nDate émission : 01/07/2025\nDate expiration : 01/01/2026"
+        },
+        {
+            "id": "doc_010",
+            "document_type": "facture",
+            "ocr_text": "FACTURE N° 2026-998\nDate émission : 20/02/2026\n\nEntreprise : ALPHA CONSULTING\nSIRET : 51298765400031\nTVA : FR91512987654\n\nClient : DATA CORP\n\nPrestation conseil IT\n\nMontant HT : 5000 EUR\nTVA : 1000 EUR\nMontant TTC : 6000 EUR\n\nConditions paiement : 45 jours"
+        }
+    ]
+}

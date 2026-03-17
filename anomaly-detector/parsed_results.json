@@ -1,0 +1,192 @@
+[
+  {
+    "document_id": "doc_001",
+    "extracted_data": {
+      "siret": "81234567800019",
+      "tva": "FR52812345678",
+      "montant_ht": "1000",
+      "montant_ttc": "1200",
+      "date_emission": "12/03/2026",
+      "expiration": "manquant",
+      "iban": "FR7612345987650123456789014"
+    },
+    "validated_data": {
+      "siret": "81234567800019",
+      "tva": "FR52812345678",
+      "montant_ht": "1000",
+      "montant_ttc": "1200",
+      "date_emission": "12/03/2026",
+      "iban": "FR7612345987650123456789014"
+    },
+    "anomalies": []
+  },
+  {
+    "document_id": "doc_002",
+    "extracted_data": {
+      "siret": "51298765400031",
+      "tva": "FR91512987654",
+      "montant_ht": "3500",
+      "montant_ttc": "4200",
+      "date_emission": "03/02/2026",
+      "expiration": "manquant",
+      "iban": "manquant"
+    },
+    "validated_data": {
+      "siret": "51298765400031",
+      "tva": "FR91512987654",
+      "montant_ht": "3500",
+      "montant_ttc": "4200",
+      "date_emission": "03/02/2026"
+    },
+    "anomalies": []
+  },
+  {
+    "document_id": "doc_003",
+    "extracted_data": {
+      "siret": "42345678900055",
+      "tva": "FR32423456789",
+      "montant_ht": "900",
+      "montant_ttc": "1000",
+      "date_emission": "18/01/2026",
+      "expiration": "manquant",
+      "iban": "manquant"
+    },
+    "validated_data": {
+      "siret": "42345678900055",
+      "tva": "FR32423456789",
+      "date_emission": "18/01/2026"
+    },
+    "anomalies": [
+      "Incohérence montants : HT (900.0) * 1.2 != TTC (1000.0)"
+    ]
+  },
+  {
+    "document_id": "doc_004",
+    "extracted_data": {
+      "siret": "67894532100022",
+      "tva": "FR67678945321",
+      "montant_ht": "2500",
+      "montant_ttc": "3000",
+      "date_emission": "15/02/2026",
+      "expiration": "manquant",
+      "iban": "manquant"
+    },
+    "validated_data": {
+      "siret": "67894532100022",
+      "tva": "FR67678945321",
+      "montant_ht": "2500",
+      "montant_ttc": "3000",
+      "date_emission": "15/02/2026"
+    },
+    "anomalies": []
+  },
+  {
+    "document_id": "doc_005",
+    "extracted_data": {
+      "siret": "81234567800019",
+      "tva": "manquant",
+      "montant_ht": "manquant",
+      "montant_ttc": "manquant",
+      "date_emission": "05/01/2026",
+      "expiration": "05/07/2026",
+      "iban": "manquant"
+    },
+    "validated_data": {
+      "siret": "81234567800019",
+      "date_emission": "05/01/2026",
+      "expiration": "05/07/2026"
+    },
+    "anomalies": []
+  },
+  {
+    "document_id": "doc_006",
+    "extracted_data": {
+      "siret": "51298765400031",
+      "tva": "manquant",
+      "montant_ht": "manquant",
+      "montant_ttc": "manquant",
+      "date_emission": "manquant",
+      "expiration": "manquant",
+      "iban": "manquant"
+    },
+    "validated_data": {
+      "siret": "51298765400031"
+    },
+    "anomalies": []
+  },
+  {
+    "document_id": "doc_007",
+    "extracted_data": {
+      "siret": "42345678900055",
+      "tva": "manquant",
+      "montant_ht": "manquant",
+      "montant_ttc": "manquant",
+      "date_emission": "manquant",
+      "expiration": "manquant",
+      "iban": "FR7612345987650123456789014"
+    },
+    "validated_data": {
+      "siret": "42345678900055",
+      "iban": "FR7612345987650123456789014"
+    },
+    "anomalies": []
+  },
+  {
+    "document_id": "doc_008",
+    "extracted_data": {
+      "siret": "99887766554433",
+      "tva": "FR99998877665",
+      "montant_ht": "1200",
+      "montant_ttc": "1440",
+      "date_emission": "10/03/2026",
+      "expiration": "manquant",
+      "iban": "manquant"
+    },
+    "validated_data": {
+      "siret": "99887766554433",
+      "tva": "FR99998877665",
+      "montant_ht": "1200",
+      "montant_ttc": "1440",
+      "date_emission": "10/03/2026"
+    },
+    "anomalies": []
+  },
+  {
+    "document_id": "doc_009",
+    "extracted_data": {
+      "siret": "67894532100022",
+      "tva": "manquant",
+      "montant_ht": "manquant",
+      "montant_ttc": "manquant",
+      "date_emission": "01/07/2025",
+      "expiration": "01/01/2026",
+      "iban": "manquant"
+    },
+    "validated_data": {
+      "siret": "67894532100022",
+      "date_emission": "01/07/2025",
+      "expiration": "01/01/2026"
+    },
+    "anomalies": []
+  },
+  {
+    "document_id": "doc_010",
+    "extracted_data": {
+      "siret": "51298765400031",
+      "tva": "FR91512987654",
+      "montant_ht": "5000",
+      "montant_ttc": "6000",
+      "date_emission": "20/02/2026",
+      "expiration": "manquant",
+      "iban": "manquant"
+    },
+    "validated_data": {
+      "siret": "51298765400031",
+      "tva": "FR91512987654",
+      "montant_ht": "5000",
+      "montant_ttc": "6000",
+      "date_emission": "20/02/2026"
+    },
+    "anomalies": []
+  }
+]
