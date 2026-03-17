@@ -1,12 +1,12 @@
 const { MongoClient } = require("mongodb");
+require('dotenv').config();
 
-const uri = "mongodb+srv://mino:Minososo1234+@cluster.fkflmzu.mongodb.net/" ;
+const uri = process.env.MONGO_URL || "mongodb+srv://mino:Minososo1234+@cluster.fkflmzu.mongodb.net/";
 
 const client = new MongoClient(uri);
 
 async function connectDB() {
   try {
-
     await client.connect();
     console.log("Connected to MongoDB");
 
