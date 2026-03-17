@@ -34,6 +34,17 @@ def fetch_bronze_unprocessed(session_id: str | None = None) -> list[dict]:
     return list(get_db()['layer_bronze'].find(query, {'_id': 0}))
 
 
+# --- Ecriture Bronze ---
+
+def save_bronze(doc: dict) -> None:
+    # J'insere ou mets a jour un document brut dans la couche bronze
+    get_db()['layer_bronze'].update_one(
+        {'document_id': doc['document_id']},
+        {'$set': doc},
+        upsert=True,
+    )
+
+
 # --- Ecriture Silver ---
 
 def save_silver(doc: dict) -> None:
