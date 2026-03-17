@@ -16,7 +16,8 @@ function Navbar() {
         <Link to="/dashboard" style={{ color: 'white', textDecoration: 'none' }}>Dashboard</Link>
         <Link to="/upload" style={{ color: 'white', textDecoration: 'none' }}>Upload</Link>
         <Link to="/result" style={{ color: 'white', textDecoration: 'none' }}>Résultats</Link>
-        <Link to="/" style={{ color: '#ff6b6b', textDecoration: 'none' }}>Déconnexion</Link>
+        <Link to="/crm" style={{ color: 'white', textDecoration: 'none' }}>CRM</Link>
+        <Link to="/" style={{ color: 'white', textDecoration: 'none' }}>Déconnexion</Link>
       </div>
     </nav>
   )
