@@ -1,0 +1,6 @@
+PyMuPDF
+pytesseract
+Pillow
+python-docx
+Flask
+Flask-Cors
