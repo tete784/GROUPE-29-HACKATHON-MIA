@@ -1,0 +1,25 @@
+# Frontend
+frontend/node_modules/
+frontend/build/
+frontend/.env
+
+# Backend Node
+backend/node_modules/
+
+# Python (Backend & OCR)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.venv/
+venv/
+ENV/
+env/
+backend/.env
+
+# Général
+*.log
+.DS_Store
+.env
+.idea/
+.vscode/

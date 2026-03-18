@@ -1,0 +1,35 @@
+services:
+
+  backend:
+    build: ./backend
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGODB_URI=${MONGODB_URI}
+      - JWT_SECRET=${JWT_SECRET}
+      - PORT=3000
+    restart: unless-stopped
+
+  anomaly-detector:
+    build: ./anomaly-detector
+    ports:
+      - "8001:8001"
+    environment:
+      - MONGODB_URI=${MONGODB_URI}
+      - PORT=8001
+    restart: unless-stopped
+
+  ocr:
+    build: ./ocr
+    ports:
+      - "5003:5003"
+    restart: unless-stopped
+
+  front:
+    build: ./front
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+      - anomaly-detector
+    restart: unless-stopped
