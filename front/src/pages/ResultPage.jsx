@@ -1,30 +1,40 @@
-import { useNavigate, useLocation } from 'react-router-dom'
-import { useState } from 'react'
-
-const MOCK_RESULTS = [
-  {
-    document_id: "facture_dupont",
-    status: "fraud_suspected",
-    fraud_detected: true,
-    issues: ["SIRET incohérents dans le lot", "Attestation expirée le 01/01/2025"],
-    validated_at: "2026-03-17T10:30:00"
-  },
-  {
-    document_id: "devis_martin",
-    status: "validated",
-    fraud_detected: false,
-    issues: [],
-    validated_at: "2026-03-17T10:30:01"
-  }
-]
+import { useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 
 function ResultPage() {
   const navigate = useNavigate()
-  const location = useLocation()
-  const preview = location.state?.preview
+  const [results, setResults] = useState([])
+  const [loading, setLoading] = useState(true)
 
-  const [results] = useState(MOCK_RESULTS)
-  const [loading] = useState(false)
+  useEffect(() => {
+    const fetchResults = async () => {
+      const sessionId = localStorage.getItem('session_id')
+      if (!sessionId) {
+        navigate('/login')
+        return
+      }
+
+      try {
+        const token = localStorage.getItem('token')
+        const res = await fetch(`http://localhost:8001/api/results/${sessionId}`, {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        })
+
+        if (!res.ok) throw new Error('Erreur serveur')
+
+        const data = await res.json()
+        setResults(data)
+      } catch (err) {
+        console.error('Erreur:', err)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchResults()
+  }, [navigate])
 
   const getStatusStyle = (status) => {
     if (status === 'fraud_suspected') {
@@ -53,21 +63,6 @@ function ResultPage() {
     <div style={{ padding: '20px', maxWidth: '700px', margin: '0 auto' }}>
       <h1 style={{ textAlign: 'center' }}>Résultats</h1>
 
-      {preview && (
-        <div style={{ textAlign: 'center' }}>
-          <img
-            src={preview}
-            alt="Photo analysée"
-            style={{
-              maxWidth: '100%',
-              maxHeight: '200px',
-              borderRadius: '10px',
-              marginBottom: '20px'
-            }}
-          />
-        </div>
-      )}
-
       {loading && (
         <div style={{
           textAlign: 'center',
@@ -75,7 +70,18 @@ function ResultPage() {
           backgroundColor: '#f5f5f5',
           borderRadius: '10px'
         }}>
-          <p style={{ color: '#666' }}>Analyse en cours...</p>
+          <p style={{ color: '#666' }}>Chargement des résultats...</p>
+        </div>
+      )}
+
+      {!loading && results.length === 0 && (
+        <div style={{
+          textAlign: 'center',
+          padding: '40px',
+          backgroundColor: '#f5f5f5',
+          borderRadius: '10px'
+        }}>
+          <p style={{ color: '#666' }}>Aucun résultat pour cette session.</p>
         </div>
       )}
 
@@ -110,7 +116,7 @@ function ResultPage() {
             Analysé le {formatDate(doc.validated_at)}
           </p>
 
-          {doc.issues.length > 0 && (
+          {doc.issues && doc.issues.length > 0 && (
             <div style={{ marginTop: '10px' }}>
               <p style={{ margin: '0 0 6px 0', fontWeight: 'bold', fontSize: '14px' }}>
                 Problèmes détectés :
@@ -125,15 +131,13 @@ function ResultPage() {
             </div>
           )}
 
-
-          {doc.issues.length === 0 && (
+          {(!doc.issues || doc.issues.length === 0) && (
             <p style={{ margin: '10px 0 0 0', fontSize: '14px', color: '#388E3C' }}>
               Aucun problème détecté ✓
             </p>
           )}
         </div>
       ))}
-
 
       {!loading && results.length > 0 && (
         <div style={{
