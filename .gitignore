@@ -3,6 +3,9 @@ frontend/node_modules/
 frontend/build/
 frontend/.env
 
+# Backend Node
+backend/node_modules/
+
 # Python (Backend & OCR)
 __pycache__/
 *.py[cod]

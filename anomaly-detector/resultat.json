@@ -1,0 +1,172 @@
+[
+    {
+        "id": "01_facture_valide_bleu",
+        "document_type": "facture",
+        "ocr_text": "Facture F2500001\n\n19 juin 2025\n\nÉmetteur\n\nSociété : Plomberie Dupont\n\nVotre contact: Thierry Dupont\n\nAdresse : 10 rue des artisans\n75000 Paris\n\nFrance\n\nAdresse email : plomberie@dupont.com\n\nDétail\nType Description\nService Pose chauffe-eau\nHeures Main-d'œuvre (installation complète)\n\nConditions\n\nConditions de règlement :\nMode de règlement :\n\n45 jours fin de mois\n\nVirement bancaire\n\nDestinataire\n\nNom : Sophie Durant\n\nAdresse : 22, Rue des Lilas\n75000 Paris\nFrance\n\nTVA\n300,00 € 1. 20%\n60,00 € 2 20%\nTotal HT\n\nTVA (20%)\n\nTotal TTC\n\nTotal HT\n\n300,00 €\n\n120,00 €\n\n420,00 €\n84,00 €\n504,00 €\n\nDocument de test synthétique\n\nPage 1/1"
+    },
+    {
+        "id": "02_facture_invalide_total",
+        "document_type": "facture",
+        "ocr_text": "Facture F2500001\n\n19 juin 2025\n\nÉmetteur\n\nSociété : Plomberie Dupont\n\nVotre contact: Thierry Dupont\n\nAdresse : 10 rue des artisans\n75000 Paris\n\nFrance\n\nAdresse email : plomberie@dupont.com\n\nDétail\nType Description\nService Pose chauffe-eau\nHeures Main-d'œuvre (installation complète)\n\nConditions\n\nConditions de règlement :\nMode de règlement :\n\n45 jours fin de mois\n\nVirement bancaire\n\nDestinataire\n\nNom : Sophie Durant\n\nAdresse : 22, Rue des Lilas\n75000 Paris\nFrance\n\nTVA\n300,00 € 1. 20%\n60,00 € 2 20%\nTotal HT\n\nTVA (20%)\n\nTotal TTC\n\nTotal HT\n\n300,00 €\n\n120,00 €\n\n420,00 €\n84,00 €\n500,00 €\n\nDocument de test synthétique\n\nPage 1/1"
+    },
+    {
+        "id": "03_facture_valide_classique",
+        "document_type": "facture",
+        "ocr_text": "Le nom de votre société\n\nAdresse\n\nCP Ville\n\nTéléphone / Fax\nRéférences Internet\n\nRéférence:  : 005449\nDate : 12 juillet 2023\nN° client : CL-2081\n\nIntitulé : Description du projet et/ou Produit facturé\n\nQuantité | Désignation\n\n12 m2 de tomette - Réf Toscane blanc’ (20*20)\n\nEn votre aimable règlement,\nCordialement,\n\nConditions de paiement : paiement à réception de facture, à 30 jours...\nAucun escompte consenti pour règlement anticipé\nTout incident de paiement est passible d'intérêt de retard.\n\nFACTURE\n\nSociété et/ou Nom du client\n\nPrix unitaire HT Prix total HT\n\n23 276\n\nTotat Hors Taxe 276,00€\nTVAa 20% ... 55208\n\nTotat TTC en euros 33t,20€—\n\nIndemnité forfaitaire pour frais de recouvrement due au créancier en cas de retard de paiement : 40€\n\nDocument de test synthétique\n\nPage 1/1"
+    },
+    {
+        "id": "04_facture_invalide_expiree",
+        "document_type": "facture",
+        "ocr_text": "Facture\n\nMon Entreprise\n22, Avenue Voltaire\n\n13000 Marseille\nTéléfon: 02 12 34 56 67 Date : 29.09.2020\nNuméro de facture : 1234\nPaiement : 30 jours\nClient : ETON 8 A00342\n; Échéance : 13.10.2019\nMichel Acheteur\n\n31, rue de la Forêt\n13100 Aix-en-Provence\nFrance\n\nInformations additionnelles :\n\nMain-d'œuvre 5 h 60,00 € 20% 60,00 € 360,00 €\nProduit 10 pcs 105,00 € 20% 270,00 € 1 260,00 €\n\nTotalHT 1 350,00 €\nTotal TVA 270,00 €\n\nTotal TTC 1 620,00€\n\nDocument de test synthétique Page 1/1"
+    },
+    {
+        "id": "05_facture_valide_magenta",
+        "document_type": "facture",
+        "ocr_text": "Facture\n\nAbby SASU isoi i\nAbbyll Document provisoire Brouillon\n48 RUE ARISTIDE BRIAND\n\n54000 NANCY France\n\nN° SIRET : 81194815700029 Jean Valjean\nN° TVA : FR77811948157 33 rue du pont\n\n; 54000 NANCY France\nDate d'émission 24/05/2023\n\nee cec cd 0n\n\n1 Forfait cartes de visite heure 50,00 € 0,00 € 50,00 € 50,(\nDélai de paiement Total HT 50,00 €\n30 jours\nTVA 0,00 €\nPénalité de retard\n3 fois le taux légal Total TTC 50,00 €\nEscompte\nAucun\n\nMoyens de paiement\nStripe\n\nIl s'agit de presta de service\n\nDocument de test synthétique Page 1/1"
+    },
+    {
+        "id": "06_facture_invalide_date_future",
+        "document_type": "facture",
+        "ocr_text": "Facture\n\nAbby SASU isoi i\nAbbyll Document provisoire Brouillon\n48 RUE ARISTIDE BRIAND\n\n54000 NANCY France\n\nN° SIRET : 81194815700029 Jean Valjean\nN° TVA : FR77811948157 33 rue du pont\n\n; 54000 NANCY France\nDate d'émission 24/05/2028\n\nee cec cd 0n\n\n1 Forfait cartes de visite heure 50,00 € 0,00 € 50,00 € 50,(\nDélai de paiement Total HT 50,00 €\n30 jours\nTVA 0,00 €\nPénalité de retard\n3 fois le taux légal Total TTC 50,00 €\nEscompte\nAucun\n\nMoyens de paiement\nStripe\n\nIl s'agit de presta de service\n\nDocument de test synthétique Page 1/1"
+    },
+    {
+        "id": "07_facture_valide_minimal",
+        "document_type": "facture",
+        "ocr_text": "Facture\n\nMon Entreprise\n22, Avenue Voltaire\n\n13000 Marseille\nTéléfon: 02 12 34 56 67 Date : 29.09.2020\nNuméro de facture : 1234\nPaiement : 30 jours\nClient : ETON 8 A00342\n; Échéance : 13.10.2020\nMichel Acheteur\n\n31, rue de la Forêt\n13100 Aix-en-Provence\nFrance\n\nInformations additionnelles :\n\nMain-d'œuvre 5 h 60,00 € 20% 60,00 € 360,00 €\nProduit 10 pcs 105,00 € 20% 270,00 € 1 260,00 €\n\nTotalHT 1 350,00 €\nTotal TVA 270,00 €\n\nTotal TTC 1 620,00€\n\nDocument de test synthétique Page 1/1"
+    },
+    {
+        "id": "08_facture_invalide_ttc",
+        "document_type": "facture",
+        "ocr_text": "Facture\n\nMon Entreprise\n22, Avenue Voltaire\n\n13000 Marseille\nTéléfon: 02 12 34 56 67 Date : 29.09.2020\nNuméro de facture : 1234\nPaiement : 30 jours\nClient : ETON 8 A00342\n; Échéance : 13.10.2020\nMichel Acheteur\n\n31, rue de la Forêt\n13100 Aix-en-Provence\nFrance\n\nInformations additionnelles :\n\nMain-d'œuvre 5 h 60,00 € 20% 60,00 € 360,00 €\nProduit 10 pcs 105,00 € 20% 270,00 € 1 260,00 €\n\nTotalHT 1 350,00 €\nTotal TVA 270,00 €\n\nTotal TTC 1590,00€\n\nDocument de test synthétique Page 1/1"
+    },
+    {
+        "id": "09_facture_invalide_floue",
+        "document_type": "facture",
+        "ocr_text": "Facture F2500001\n\n19 pain 2025\nEmetteur Destinataire\nSon ote Pomoere Ouport eo Sopree Ovart\nVows contact Tiwary Oupont Asesse 722 Pe Gos tas\n75000 Pars\nAverse 10 ne des artears Frarce\n75000 Pare\nFrance\nP — nactee duen es citl\nDetail\nsevce Pose hae um 0.0 « : —… mone\nre ae 4s ratatater cq me a = mmc\nTotal HT _ 42000€\nTVA(20%) 84,00€\nTota TTC  50400€\nConditions\n( onBOnS te egemen A ps te oe mon\n\nMode 2 regiemert Veernert barcare\n\n—— om?"
+    },
+    {
+        "id": "10_facture_invalide_pixelisee",
+        "document_type": "inconnu",
+        "ocr_text": "m E\n\nCe oo: me om\n\n— ma\n— - a e\n\nem rte ele Hes es eed\n\nee ee Pe ee\n\n— sE a m=\nP ee a L\neS\niat UH\nfe eee | TP\na\n—\n\ner bl -\n— = e = E S SS OE"
+    },
+    {
+        "id": "11_facture_valide_vert",
+        "document_type": "facture",
+        "ocr_text": "Atelier Services Habitat | FACTURE\n\n18 rue des Acacias - 75011 Paris\nSIRET 532 118 427 00031 - TVA FR32532118427\n\nFACTURE\n\nEmetteu Destinat\nr aire\nSociete Atelier Services Habitat Nom Claire Martin\nContact Julien Perrin Adresse 42 avenue Victor Hugo\nAdresse 18 rue des Acacias Ville 92100 Boulogne-Billancourt\n75011 Paris\nEmail contact@atelier-habitat.test Pays France\nDate 19/06/2025\nNumero F2500087\nEcheance 04/07/2025\nPaiement Virement\nDetail\nTVA Total HT\nService Pose chauffe-eau 300,00 € 1 20% 300,00 €\nHeures Main-d'oeuvre installation complete 60,00 € 2 20% 120,00 €\nTotal HT 420,00 €\nTVA (20%) 84,00 €\nTotal TTC 504,00 €\nConditions\n\nConditions de reglement : 45 jours fin de mois\nMode de reglement : Virement bancaire\n\nPage 1 sur 1"
+    },
+    {
+        "id": "12_facture_invalide_tva",
+        "document_type": "facture",
+        "ocr_text": "Atelier Services Habitat FACTURE\n\n18 rue des Acacias - 75011 Paris\nSIRET 532 118 427 00031 - TVA FR32532118427\n\nFACTURE\n\nEmetteu Destinat\nr aire\nSociete Atelier Services Habitat Nom Claire Martin\nContact Julien Perrin Adresse 42 avenue Victor Hugo\nAdresse 18 rue des Acacias Ville 92100 Boulogne-Billancourt\n75011 Paris\nEmail contact@atelier-habitat.test Pays France\nDate 19/06/2025\nNumero F2500087\nEcheance 04/07/2025\nPaiement Virement\nDetail\nTVA Total HT\nService Pose chauffe-eau 300,00 € 1 20% 300,00 €\nHeures Main-d'oeuvre installation complete 60,00 € 2 20% 120,00 €\nTotal HT 420,00 €\nTVA (20%) 20,00 €\nTotal TTC 440,00 €\nConditions\n\nConditions de reglement : 45 jours fin de mois\nMode de reglement : Virement bancaire\n\nPage 1 sur 1"
+    },
+    {
+        "id": "13_facture_valide_gris",
+        "document_type": "facture",
+        "ocr_text": "Atelier Services Habitat FACTURE\n\n18 rue des Acacias - 75011 Paris\nSIRET 532 118 427 00031 - TVA FR32532118427\n\nFACTURE\n\nEmetteu Destinat\nr aire\nSociete Atelier Services Habitat Nom Claire Martin\nContact Julien Perrin Adresse 42 avenue Victor Hugo\nAdresse 18 rue des Acacias Ville 92100 Boulogne-Billancourt\n75011 Paris\nEmail contact@atelier-habitat.test Pays France\nDate 19/06/2025\nNumero F2500087\nEcheance 04/07/2025\nPaiement Virement\nDetail\nTVA Total HT\nService Pose chauffe-eau 300,00 € 1 20% 300,00 €\nHeures Main-d'oeuvre installation complete 60,00 € 2 20% 120,00 €\nTotal HT 420,00 €\nTVA (20%) 84,00 €\nTotal TTC 504,00 €\nConditions\n\nConditions de reglement : 45 jours fin de mois\nMode de reglement : Virement bancaire\n\nPage 1 sur 1"
+    },
+    {
+        "id": "14_facture_invalide_numero_manquant",
+        "document_type": "facture",
+        "ocr_text": "Atelier Services Habitat FACTURE\n\n18 rue des Acacias - 75011 Paris\nSIRET 532 118 427 00031 - TVA FR32532118427\n\nFACTURE\n\nEmetteu Destinat\nr aire\nSociete Atelier Services Habitat Nom Claire Martin\nContact Julien Perrin Adresse 42 avenue Victor Hugo\nAdresse 18 rue des Acacias Ville 92100 Boulogne-Billancourt\n75011 Paris\nEmail contact@atelier-habitat.test Pays France\nDate 19/06/2025\nNumero -\nEcheance 04/07/2025\nPaiement Virement\nDetail\nTVA Total HT\nService Pose chauffe-eau 300,00 € 1 20% 300,00 €\nHeures Main-d'oeuvre installation complete 60,00 € 2 20% 120,00 €\nTotal HT 420,00 €\nTVA (20%) 84,00 €\nTotal TTC 504,00 €\nConditions\n\nConditions de reglement : 45 jours fin de mois\nMode de reglement : Virement bancaire\nChamp manquant volontaire pour test\n\nPage 1 sur 1"
+    },
+    {
+        "id": "15_facture_valide_magenta",
+        "document_type": "facture",
+        "ocr_text": "Atelier Services Habitat FACTURE\n\n18 rue des Acacias - 75011 Paris\nSIRET 532 118 427 00031 - TVA FR32532118427\n\nFACTURE\n\nEmetteu Destinat\nr aire\nSociete Atelier Services Habitat Nom Claire Martin\nContact Julien Perrin Adresse 42 avenue Victor Hugo\nAdresse 18 rue des Acacias Ville 92100 Boulogne-Billancourt\n75011 Paris\nEmail contact@atelier-habitat.test Pays France\nDate 19/06/2025\nNumero F2500087\nEcheance 04/07/2025\nPaiement Virement\nDetail\nTVA Total HT\nService Pose chauffe-eau 300,00 € 1 20% 300,00 €\nHeures Main-d'oeuvre installation complete 60,00 € 2 20% 120,00 €\nTotal HT 420,00 €\nTVA (20%) 84,00 €\nTotal TTC 504,00 €\nConditions\n\nConditions de reglement : 45 jours fin de mois\nMode de reglement : Virement bancaire\n\nPage 1 sur 1"
+    },
+    {
+        "id": "16_facture_invalide_devis_a_la_place",
+        "document_type": "facture",
+        "ocr_text": "Atelier Services Habitat DEVIS\n\n18 rue des Acacias - 75011 Paris\nSIRET 532 118 427 00031 - TVA FR32532118427\n\nDEVIS\n\nEmetteu Destinat\nr aire\nSociete Atelier Services Habitat Nom Claire Martin\nContact Julien Perrin Adresse 42 avenue Victor Hugo\nAdresse 18 rue des Acacias Ville 92100 Boulogne-Billancourt\n75011 Paris\nEmail contact@atelier-habitat.test Pays France\nDate 19/06/2025\nNumero F2500087\nEcheance 04/07/2025\nPaiement Virement\nDetail\nTVA Total HT\nService Pose chauffe-eau 300,00 € 1 20% 300,00 €\nHeures Main-d'oeuvre installation complete 60,00 € 2 20% 120,00 €\nTotal HT 420,00 €\nTVA (20%) 84,00 €\nTotal TTC 504,00 €\nConditions\n\nConditions de reglement : 45 jours fin de mois\nMode de reglement : Virement bancaire\n\nPage 1 sur 1"
+    },
+    {
+        "id": "17_facture_valide_bleu",
+        "document_type": "facture",
+        "ocr_text": "Atelier Services Habitat FACTURE\n\n18 rue des Acacias - 75011 Paris\nSIRET 532 118 427 00031 - TVA FR32532118427\n\nFACTURE\n\nEmetteu Destinat\nr aire\nSociete Atelier Services Habitat Nom Claire Martin\nContact Julien Perrin Adresse 42 avenue Victor Hugo\nAdresse 18 rue des Acacias Ville 92100 Boulogne-Billancourt\n75011 Paris\nEmail contact@atelier-habitat.test Pays France\nDate 19/06/2025\nNumero F2500087\nEcheance 04/07/2025\nPaiement Virement\nDetail\nTVA Total HT\nService Pose chauffe-eau 300,00 € 1 20% 300,00 €\nHeures Main-d'oeuvre installation complete 60,00 € 2 20% 120,00 €\nTotal HT 420,00 €\nTVA (20%) 84,00 €\nTotal TTC 504,00 €\nConditions\n\nConditions de reglement : 45 jours fin de mois\nMode de reglement : Virement bancaire\n\nPage 1 sur 1"
+    },
+    {
+        "id": "18_facture_invalide_date_expiree",
+        "document_type": "facture",
+        "ocr_text": "Atelier Services Habitat FACTURE\n\n18 rue des Acacias - 75011 Paris\nSIRET 532 118 427 00031 - TVA FR32532118427\n\nFACTURE\n\nEmetteu Destinat\nr aire\nSociete Atelier Services Habitat Nom Claire Martin\nContact Julien Perrin Adresse 42 avenue Victor Hugo\nAdresse 18 rue des Acacias Ville 92100 Boulogne-Billancourt\n75011 Paris\nEmail contact@atelier-habitat.test Pays France\nDate 11/02/2021\nNumero F2500087\nEcheance 26/02/2021\nPaiement Virement\nDetail\nTVA Total HT\nService Pose chauffe-eau 300,00 € 1 20% 300,00 €\nHeures Main-d'oeuvre installation complete 60,00 € 2 20% 120,00 €\nTotal HT 420,00 €\nTVA (20%) 84,00 €\nTotal TTC 504,00 €\nConditions\n\nConditions de reglement : 45 jours fin de mois\nMode de reglement : Virement bancaire\nDocument expire\n\nPage 1 sur 1"
+    },
+    {
+        "id": "19_facture_invalide_floue_v2",
+        "document_type": "facture",
+        "ocr_text": "Atelier Services Habitat FACTURE\n\nGes Acscies - 7504\n-Ï—lU‘ï—' M……\n\nEmetteu Destinat\n, are\n- Areva Servces Hattat = Care Maren\n= ater Pome s0. 42 averue Victor Hugo.\n—. 18 rue Ges Acsces ves 92100 Boutogne Bdancour\n75011 Pare\n_ Contact ateter Natrtat test France\n— 1908-2025\n… r2s00087\n(reexe 0407 2025\n—— vrermert\nDetai\nse Pose Pate om s000 ‘ e mee\n— Mar dome catatater omen ome 2 mn 12000€\nTotal MT …\nTVA Q0%) moe\nTots! TTC s0400 «\n\nConditions\nCondstors de regiement 45 jours tn de mos,\nMode de regement Vrement barcare"
+    },
+    {
+        "id": "20_facture_invalide_pixelisee_v2",
+        "document_type": "inconnu",
+        "ocr_text": "[\n—s e = s2\n—\n\n=— 2\n\n= — —— es\n\n|\n\n|\n\nT FF\n— TRL\n\" m F\nall e — a\nE PR —"
+    },
+    {
+        "id": "21_devis_valide_micro",
+        "document_type": "facture",
+        "ocr_text": "DEVIS\n\nIdentification du micro-entrepreneur\n\n12 rue des Artisans\n75011 Paris\n\n01 44 22 33 11\ncontact@example.fr\n\nDesignation\nProduit A\nProduit B\n\nService C\n\nDate de validité de l'offre : 15 jours\n\nConditions de paiement : réglement à 30 jours\nDocument synthétique pour test dataset\n\nClient\nSophie Martin\n28 rue des | ilas\nDate : 14/03/2026\nNumero : D-2026-014\nPaiement : 30 jours\nEcheance : 13/04/2026\nPri T TVA Total T\n300,00 € 0% 600,00 €\n300,00 € 0% 600,00 €\n100,00 € 0% 400,00 €\nTotal HT 1 600,00 €\nTVA non applicable 0,00 €\nTotal TTC 1 600,00 €\n\nSignature du client"
+    },
+    {
+        "id": "22_devis_invalide_expire",
+        "document_type": "facture",
+        "ocr_text": "DEVIS\n\nNom de l'entreprise Nom du client\n\n12 rue des Artisans Sophie Martin\n\n75011 Paris 28 rie des | ilas\n01 44 22 33 11 Date :\ncontact@example.fr Numero :\nPaiement :\nEcheance :\nDescription uantite Prix U. HT\nLicence 1 utilisateur 1 39,90 €\nTotal HT 39,90 €\nTVA 20% 7,98 €\nTotal TTC 47,88 €\n\nConditions de paiement : réglement à 30 jours\nDocument synthétique pour test dataset\n\nTVA\n\n20%\n\n14/03/2026\nD-2026-014\n30 jours\n\n13/04/2026\n\nOffre expirée le 01/01/2024"
+    },
+    {
+        "id": "23_devis_valide_classique",
+        "document_type": "facture",
+        "ocr_text": "Devis N°\n\nNom de l'entreprise\n\n12 rue des Artisans\n75011 Paris\n\n01 44223311\ncontact@example.fr\n\nDescription\nCréation site internet\nCréation logo\n\nMaintenance mensuelle\n\nModalités : règlement à réception\n\nConditions de paiement : réglement à 30 jours\n\nDocument synthétique pour test dataset\n\nNom du client\n\nSophie Martin\n28 rue des | ilas\nDate : 14/03/2026\nNumero : D-2026-014\nPaiement : 30 jours\nEcheance : 13/04/2026\nPrix U. HT TVA Total T\n1 500,00 € 20% 1 800,00 €\n150,00 € 20% 180,00 €\n50,00 € 20% 720,00 €\nTotal HT 2 250,00 €\nTVA 20% 450,00 €\nTotal TTC 2 700,00 €\n\nOffre valable jusqu'au 30/04/2026"
+    },
+    {
+        "id": "24_devis_invalide_flou",
+        "document_type": "devis",
+        "ocr_text": "Devis N°\n\n—— — ——\n—-— ——\n=) te\ncen\n\n—\n\n——s =4 =1 2 00\n\n—- —\"\n\n-— - — —\n\n— — ——\n——\n\n——\nvee …\ntow Tt\n\n0225 —n\n» — e\n-—\n\nor\n\n733\n\n—- —. Hw"
+    },
+    {
+        "id": "24_devis_invalide_flou",
+        "document_type": "devis",
+        "ocr_text": "Devis N°\n\n—— —\n—- — —\n\"— fe\n«ae\n\n—-\n\n—— —\n\n—. ...\noe eee -—\n\n— — ——\n\n——\n\n= —— ——\n— —— —\n— » —\n-— —\n— ——\n\n=m -\n\nmm -\n\n…… -\n— imme\nnem mms\ntow TC —…\n\n—- -— .. …n\n\nmms\n\n“me\n\n\"me"
+    },
+    {
+        "id": "25_attestation_hebergement_valide",
+        "document_type": "attestation",
+        "ocr_text": "ATTESTATION D'HEBERGEMENT\n\nJe soussigné(e) Marc Lefort, né(e) le 12/05/1988, de nationalité française,\n\ndemeurant au 18 rue des Bleuets, 67000 Strasbourg,\n\ndéclare héberger a mon domicile Mme Lina Bensaid,\n\nnée le 03/09/1997, à compter du 10/01/2026.\n\nFait a Strasbourg, le 14/03/2026\n\nSignature : Marc Lefort\n\nPièces jointes : copie de pièce d'identité et justificatif de domicile\n\nAttestation sur l'honneur\nDocument synthétique pour test dataset"
+    },
+    {
+        "id": "26_attestation_invalide_signature",
+        "document_type": "attestation",
+        "ocr_text": "ATTESTATION D'HEBERGEMENT\n\nJe soussigné(e) Marc Lefort, né(e) le 12/05/1988, de nationalité française,\n\ndemeurant au 18 rue des Bleuets, 67000 Strasbourg,\n\ndéclare héberger a mon domicile Mme Lina Bensaid,\n\nnée le 03/09/1997, à compter du 10/01/2026.\n\nFait a Strasbourg, le 14/03/2026\n\nSignature :\n\nAnomalie : signature absente\n\nAttestation sur l'honneur\nDocument synthétique pour test dataset"
+    },
+    {
+        "id": "27_certificat_formation_valide",
+        "document_type": "attestation",
+        "ocr_text": "CERTIFICAT DE FORMATION\n\nOrganisme de formation :\n\nTechForma Academy\n9 avenue de la République, 69000 Lyon\ncontact@techforma.fr\n\nCertifie que Julie Martin a satisfait aux exigences de la formation\nintitulée Analyse de données niveau 1.\n\nDurée : 21 heures\n\nRemis le 14/03/2026\n\nSignature du formateur : Alain Perrin\n\nCertificat synthétique de démonstration\nDocument synthétique pour test dataset"
+    },
+    {
+        "id": "28_certificat_invalide_date_future",
+        "document_type": "attestation",
+        "ocr_text": "CERTIFICAT DE FORMATION\n\nOrganisme de formation :\n\nTechForma Academy\n9 avenue de la République, 69000 Lyon\ncontact@techforma.fr\n\nCertifie que Julie Martin a satisfait aux exigences de la formation\nintitulée Analyse de données niveau 1.\n\nDurée : 21 heures\n\nRemis le 14/03/2032\n\nSignature du formateur : Alain Perrin\n\nAnomalie : date future\n\nCertificat synthétique de démonstration\nDocument synthétique pour test dataset"
+    },
+    {
+        "id": "29_facture_valide_simple",
+        "document_type": "facture",
+        "ocr_text": "FACTURE\n\nMon Entreprise Client\n12 rue des Artisans Sophie Martin\n75011 Paris 28 rue des | ilas\n01 44 22 38 11 Date : 14/03/2026\ncontact@example.fr Numero : D-2026-014\nPaiement : 30 jours\nEcheance : 13/04/2026\nDescription Prix U. HT TVA Total T\nMain-d'oeuvre 5 60,00 € 20% 360,00 €\nProduit 10 105,00 € 20% 1260,00 €\nTotal HT 1 350,00 €\nTVA 20% 270,00 €\nTotal TTC 1 620,00 €\n\nConditions de paiement : réglement à 30 jours\nDocument synthétique pour test dataset"
+    },
+    {
+        "id": "30_facture_invalide_total",
+        "document_type": "facture",
+        "ocr_text": "FACTURE\n\nMon Entreprise Client\n12 rue des Artisans Sophie Martin\n75011 Paris 28 rue des | ilas\n01 44 22 38 11 Date : 14/03/2026\ncontact@example.fr Numero : D-2026-014\nPaiement : 30 jours\nEcheance : 13/04/2026\nDescription Prix U. HT TVA Total T\nMain-d'oeuvre 5 60,00 € 20% 360,00 €\nProduit 10 105,00 € 20% 1260,00 €\nTotal HT 1 350,00 €\nTVA 20% 270,00 €\nTotal TTC 1 600,00 €\n\nAnomalie : total TTC incohérent\n\nConditions de paiement : réglement à 30 jours\nDocument synthétique pour test dataset"
+    },
+    {
+        "id": "31_certificat_invalide_pixelise",
+        "document_type": "inconnu",
+        "ocr_text": "CERTIFICAT DE FORMATION\n\nCc rs\nae es sS\n\nbees sE SE i\nra Ses.\n\nel S e e e e\nes eee ee\n\np\n\nm=s CIP"
+    },
+    {
+        "id": "31_certificat_invalide_pixelise",
+        "document_type": "inconnu",
+        "ocr_text": "CERTIFICAT DE FORMATION\n\nae e M c\n\naS S\nBees e e eee, ee\nres,"
+    },
+    {
+        "id": "32_devis_valide_sans_tva",
+        "document_type": "facture",
+        "ocr_text": "DEVIS\n\nMicro-entreprise Client\n12 rue des Artisans Sophie Martin\n75011 Paris 28 rue des | ilas\n01 44 22 38 11 Date : 14/03/2026\ncontact@example.fr Numero : D-2026-014\nPaiement : 30 jours\nEcheance : 13/04/2026\nDes Pri HT TVA Total T\nPrestation conseil 3 180,00 € 0% 540,00 €\nAudit initial 1 250,00 € 0% 250,00 €\nTotal HT 790,00 €\nTVA non applicable 0,00 €\nTotal TTC 790,00 €\n\nArticle 293 B du CGI\n\nConditions de paiement : réglement à 30 jours\nDocument synthétique pour test dataset"
+    }
+]
