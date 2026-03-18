@@ -1,5 +1,5 @@
 import { useNavigate, useLocation } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 const MOCK_RESULTS = [
   {
@@ -23,14 +23,8 @@ function ResultPage() {
   const location = useLocation()
   const preview = location.state?.preview
 
-  const [results, setResults] = useState([])
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-      setResults(MOCK_RESULTS)
-      setLoading(false)
-  }, [])
-
+  const [results] = useState(MOCK_RESULTS)
+  const [loading] = useState(false)
 
   const getStatusStyle = (status) => {
     if (status === 'fraud_suspected') {
