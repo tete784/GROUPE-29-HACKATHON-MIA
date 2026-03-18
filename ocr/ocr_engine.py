@@ -4,6 +4,7 @@ from PIL import Image
 import io
 import os
 import docx 
+import re
 
 def extraire_texte_pdf(chemin_pdf):
     """
@@ -47,12 +48,16 @@ def extraire_texte_image(chemin_image):
 def detecter_type_document(texte):
     """
     Détecte le type de document en fonction des mots-clés présents dans le texte.
+    Règle métier prioritaire : si 'devis' apparaît, le document est classé comme devis.
     """
     texte = texte.lower()
 
+    # Priorité métier
+    if re.search(r"\bdevis\b", texte):
+        return "devis"
+
     types = {
         "facture": ["facture", "ht", "ttc", "tva", "montant", "paiement"],
-        "devis": ["devis", "estimation", "validité"],
         "attestation": ["attestation", "certifie", "organisme"],
         "presentation": ["hackathon", "présentation", "groupe"],
         "contrat": ["contrat", "engagement", "signature"],
@@ -68,13 +73,13 @@ def detecter_type_document(texte):
                 score += 1
         scores[type_doc] = score
 
-    # Le type avec le meilleur score
     meilleur = max(scores, key=scores.get)
 
     if scores[meilleur] == 0:
         return "inconnu"
 
     return meilleur
+
 
 def extraire_texte(chemin_fichier):
     """
