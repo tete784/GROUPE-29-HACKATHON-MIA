@@ -1,6 +1,15 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { logout } from '../services/auth'
 
 function Navbar() {
+  const navigate = useNavigate();
+
+    const handleLogout = async (e) => {
+      e.preventDefault()
+      await logout()
+      navigate('/')
+  }
+
   return (
     <nav style={{
       display: 'flex',
@@ -17,7 +26,7 @@ function Navbar() {
         <Link to="/upload" style={{ color: 'white', textDecoration: 'none' }}>Upload</Link>
         <Link to="/result" style={{ color: 'white', textDecoration: 'none' }}>Résultats</Link>
         <Link to="/crm" style={{ color: 'white', textDecoration: 'none' }}>CRM</Link>
-        <Link to="/" style={{ color: 'white', textDecoration: 'none' }}>Déconnexion</Link>
+        <a href="/" onClick={handleLogout} style={{ color: 'white', textDecoration: 'none', cursor: 'pointer' }}>Logout</a>
       </div>
     </nav>
   )

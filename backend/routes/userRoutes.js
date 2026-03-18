@@ -13,38 +13,45 @@ module.exports = (db) => {
   const sessions = db.collection('sessions');
   sessions.createIndex({ session_id: 1 }, { unique: true }).catch(() => {});
 
-  router.post('/register', async (req, res) => {
-    try {
-      const { user_id, name, email, password, admin } = req.body;
+router.post('/register', async (req, res) => {
+  try {
+    const { name, email, password, admin } = req.body;
 
-      if (!user_id || !email || !password || !name) {
-        return res.status(400).json({ message: 'Missing required fields' });
-      }
-
-      const existing = await users.findOne({ $or: [{ user_id }, { email }] });
-      if (existing) return res.status(409).json({ message: 'User with given id or email already exists' });
-
-      const hashed = await bcrypt.hash(password, 10);
-
-      const doc = {
-        user_id,
-        name,
-        email,
-        password: hashed,
-        admin: !!admin,
-        created_at: new Date().toISOString(),
-      };
-
-      await users.insertOne(doc);
-
-      const token = jwt.sign({ user_id: doc.user_id, admin: doc.admin }, JWT_SECRET, { expiresIn: '7d' });
-
-      res.status(201).json({ message: 'User created', token });
-    } catch (err) {
-      console.error(err);
-      res.status(500).json({ message: 'Server error' });
+    if (!email || !password || !name) {
+      return res.status(400).json({ message: 'Missing required fields' });
     }
-  });
+
+    const existing = await users.findOne({ email });
+    if (existing) return res.status(409).json({ message: 'User with given email already exists' });
+
+    const hashed = await bcrypt.hash(password, 10);
+
+    const doc = {
+      name,
+      email,
+      password: hashed,
+      admin: !!admin,
+      created_at: new Date().toISOString(),
+    };
+
+    const result = await users.insertOne(doc);
+
+    const token = jwt.sign(
+      {
+        userId: result.insertedId.toString(),
+        admin: doc.admin
+      },
+      JWT_SECRET,
+      { expiresIn: '7d' }
+    );
+
+    res.status(201).json({ message: 'User created', token });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
 
   router.post('/login', async (req, res) => {
     try {
