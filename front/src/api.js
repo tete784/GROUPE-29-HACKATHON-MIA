@@ -4,6 +4,10 @@ const api = axios.create({
   baseURL: 'http://localhost:3000',
 })
 
+export const ocrApi = axios.create({
+  baseURL: 'http://localhost:5003',
+})
+
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('token')
   if (token) {
