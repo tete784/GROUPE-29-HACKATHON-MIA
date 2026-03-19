@@ -9,7 +9,9 @@ const userRoutes = require("./routes/userRoutes");
 const { authenticateToken } = require('./middleware/auth');
 
 const app = express();
+const cors = require("cors");
 
+app.use(cors());
 app.use(express.json());
 
 async function startServer() {
@@ -24,7 +26,7 @@ async function startServer() {
 
     const authenticateToken = require('./middleware/auth')(db);
 
-    
+
     app.use('/api/users', userRoutes(db));
 
     const port = process.env.PORT || 3000;
