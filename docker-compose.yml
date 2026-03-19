@@ -10,6 +10,13 @@ services:
       - PORT=3000
     restart: unless-stopped
 
+  prefect-server:
+    image: prefecthq/prefect:3-latest
+    ports:
+      - "4200:4200"
+    command: prefect server start --host 0.0.0.0
+    restart: unless-stopped
+
   anomaly-detector:
     build: ./anomaly-detector
     ports:
@@ -17,6 +24,9 @@ services:
     environment:
       - MONGODB_URI=${MONGODB_URI}
       - PORT=8001
+      - PREFECT_API_URL=http://prefect-server:4200/api
+    depends_on:
+      - prefect-server
     restart: unless-stopped
 
   ocr:
@@ -28,7 +38,7 @@ services:
   front:
     build: ./front
     ports:
-      - "5173:80"
+      - "5173:5173"
     depends_on:
       - backend
       - anomaly-detector
