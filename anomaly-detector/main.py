@@ -40,16 +40,23 @@ class AnalyzeRequest(BaseModel):
 
 @app.post("/ingest", status_code=202)
 def ingest_and_analyze(body: IngestRequest, background_tasks: BackgroundTasks):
-    print("INGEST RECU :", body.session_id, len(body.documents))
+    for doc in body.documents:
+        save_bronze({
+            'document_id': doc.id,
+            'document_type': doc.document_type,
+            'ocr_text': doc.ocr_text,
+            'session_id': body.session_id,
+            'ocr_processed': True,
+            'uploaded_at': datetime.utcnow(),
+        })
 
     background_tasks.add_task(analyze_session_flow, body.session_id)
 
     return {
         "status": "accepted",
         "session_id": body.session_id,
-        "message": "Documents reçus, analyse lancée en arrière-plan"
+        "message": "Documents ingérés, analyse lancée en arrière-plan"
     }
-
 
 @app.post("/analyze", status_code=202)
 async def trigger_analysis(body: AnalyzeRequest, background_tasks: BackgroundTasks):
