@@ -4,3 +4,7 @@ Pillow
 python-docx
 flask
 flask-cors
+fastapi
+requests
+uvicorn
+python-multipart
