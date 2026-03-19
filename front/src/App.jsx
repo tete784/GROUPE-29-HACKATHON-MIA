@@ -6,6 +6,7 @@ import ResultPage from './pages/ResultPage'
 import DashboardPage from './pages/DashboardPage'
 import CRM from './pages/CRM'
 import Navbar from './components/Navbar'
+import ProtectedRoute from './components/ProtectedRoute'
 
 function Layout({ children }) {
   const location = useLocation()
@@ -27,10 +28,18 @@ function App() {
           <Route path="/" element={<LoginPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
-          <Route path="/dashboard" element={<DashboardPage />} />
-          <Route path="/upload" element={<UploadPage />} />
-          <Route path="/result" element={<ResultPage />} />
-          <Route path="/crm" element={<CRM />} />
+          <Route path="/dashboard" element={
+            <ProtectedRoute><DashboardPage /></ProtectedRoute>
+          } />
+          <Route path="/upload" element={
+            <ProtectedRoute><UploadPage /></ProtectedRoute>
+          } />
+          <Route path="/result" element={
+            <ProtectedRoute><ResultPage /></ProtectedRoute>
+          } />
+          <Route path="/crm" element={
+            <ProtectedRoute><CRM /></ProtectedRoute>
+          } />
         </Routes>
       </Layout>
     </BrowserRouter>
