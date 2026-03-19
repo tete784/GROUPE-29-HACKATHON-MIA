@@ -30,7 +30,14 @@ function UploadPage() {
     try {
       const formData = new FormData()
       formData.append('file', image)
-      formData.append('session_id', crypto.randomUUID())
+
+      // On récupère la session de l'utilisateur, ou on en crée/sauvegarde une nouvelle
+      let currentSessionId = localStorage.getItem('session_id')
+      if (!currentSessionId) {
+        currentSessionId = crypto.randomUUID()
+        localStorage.setItem('session_id', currentSessionId)
+      }
+      formData.append('session_id', currentSessionId)
 
       const { data } = await ocrApi.post('/extract-and-ingest', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
@@ -64,19 +71,19 @@ function UploadPage() {
       />
 
 
-    {preview && (
-      <div>
-        {image?.type === 'application/pdf' ? (
-          <p>📄 {image.name}</p>
-        ) : (
-          <img
-            src={preview}
-            alt="Aperçu"
-            style={{ maxWidth: '100%', maxHeight: '300px', borderRadius: '10px' }}
-          />
-        )}
-      </div>
-    )}
+      {preview && (
+        <div>
+          {image?.type === 'application/pdf' ? (
+            <p>📄 {image.name}</p>
+          ) : (
+            <img
+              src={preview}
+              alt="Aperçu"
+              style={{ maxWidth: '100%', maxHeight: '300px', borderRadius: '10px' }}
+            />
+          )}
+        </div>
+      )}
 
       {error && (
         <p style={{ color: 'red', marginTop: '10px' }}>❌ {error}</p>

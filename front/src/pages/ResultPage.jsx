@@ -22,18 +22,30 @@ function ResultPage() {
           }
         })
 
+        if (res.status === 404) {
+          // Si 404, on ne fait rien, on attendra le prochain tour du polling !
+          return
+        }
+
         if (!res.ok) throw new Error('Erreur serveur')
 
         const data = await res.json()
         setResults(data)
+
+        // C'est prêt, on arrête le polling localement
+        clearInterval(intervalId)
       } catch (err) {
         console.error('Erreur:', err)
+        clearInterval(intervalId)
       } finally {
         setLoading(false)
       }
     }
 
     fetchResults()
+    const intervalId = setInterval(fetchResults, 3000)
+
+    return () => clearInterval(intervalId)
   }, [navigate])
 
   const getStatusStyle = (status) => {
