@@ -84,59 +84,67 @@ def _parse_date_str(s: str) -> datetime | None:
 
 
 def extract_fields(ocr_text: str) -> dict:
-    # J'extrais tous les champs metier en combinant mes patterns et ceux de Theo
+    # J'extrais tous les champs metier en utilisant le parseur robuste de Theo (ocr_analyzer.py)
+    from ocr_analyzer import analyser_texte_ocr
+    from datetime import datetime
+
+    # Appel au script robuste avec heuristiques
+    res = analyser_texte_ocr("dummy", ocr_text)
+    theo_data = res.get("validated_data", {})
+    
     fields: dict = {}
 
-    # SIRET
-    m = _first_match(ocr_text, SIRET_PATTERNS)
-    if m:
-        siret = m.group(1).replace(' ', '')
-        if len(siret) == 14:
-            fields['siret'] = siret
+    if "siret" in theo_data:
+        fields['siret'] = theo_data["siret"]
 
-    # TVA taux (pour validation HT*TVA=TTC)
-    m = TVA_RATE_RE.search(ocr_text)
-    if m:
-        fields['tva'] = _to_float(m.group(1))
-
-    # TVA numero fournisseur
-    m = TVA_NUM_RE.search(ocr_text)
-    if m:
-        fields['tva_numero'] = m.group(1).replace(' ', '')
-
-    # Montant HT
-    m = _first_match(ocr_text, MONTANT_HT_PATTERNS)
-    if m:
-        val = _to_float(m.group(1))
-        if val is not None:
-            fields['montant_ht'] = val
-
-    # Montant TTC
-    m = _first_match(ocr_text, MONTANT_TTC_PATTERNS)
-    if m:
-        val = _to_float(m.group(1))
-        if val is not None:
-            fields['montant_ttc'] = val
+    # Traitement des montants
+    ht_str = theo_data.get("montant_ht")
+    ttc_str = theo_data.get("montant_ttc")
+    
+    if ht_str:
+        try:
+            ht = float(ht_str)
+            fields['montant_ht'] = ht
+        except:
+            pass
+            
+    if ttc_str:
+        try:
+            ttc = float(ttc_str)
+            fields['montant_ttc'] = ttc
+        except:
+            pass
+            
+    # Le validateur d'Amine s'attend a recevoir le TAUX de TVA dans le champ 'tva'
+    if "montant_ht" in fields and "montant_ttc" in fields:
+        ht = fields["montant_ht"]
+        ttc = fields["montant_ttc"]
+        if ht > 0:
+            rate = round(((ttc - ht) / ht) * 100, 2)
+            fields['tva'] = rate
+            
+            # On stocke egalement le montant de la TVA au cas ou
+            fields['montant_tva'] = round(ttc - ht, 2)
 
     # Date document (emission)
-    m = _first_match(ocr_text, DATE_EMISSION_PATTERNS)
-    if m:
-        groups = m.groups()
-        if len(groups) == 1:
-            fields['date_document'] = _parse_date_str(groups[0])
-        elif len(groups) == 3:
-            fields['date_document'] = _parse_date(*groups)
+    if "date_emission" in theo_data:
+        try:
+            fields['date_document'] = datetime.strptime(theo_data["date_emission"], "%d/%m/%Y")
+            # Pour la base de donnees et le front, on garde la string formattee
+            fields['date_emission'] = theo_data["date_emission"]
+        except:
+            pass
 
     # Date expiration
-    m = _first_match(ocr_text, DATE_EXPIRY_PATTERNS)
-    if m:
-        fields['date_expiration'] = _parse_date_str(m.group(1))
+    if "expiration" in theo_data:
+        try:
+            fields['date_expiration'] = datetime.strptime(theo_data["expiration"], "%d/%m/%Y")
+            fields['expiration'] = theo_data["expiration"]
+        except:
+            pass
 
     # IBAN
-    m = IBAN_RE.search(ocr_text)
-    if m:
-        iban = m.group(1).replace(' ', '')
-        if IBAN_FORMAT.fullmatch(iban):
-            fields['iban'] = iban
+    if "iban" in theo_data:
+        fields['iban'] = theo_data["iban"]
 
     return fields
