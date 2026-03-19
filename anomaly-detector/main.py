@@ -9,6 +9,8 @@ from flows import analyze_session_flow
 from mongo_client import fetch_all_gold, fetch_gold_by_session, get_db, save_bronze
 
 
+from fastapi.middleware.cors import CORSMiddleware
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # J'initialise la connexion MongoDB une seule fois au demarrage du service
@@ -17,6 +19,14 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(title="Anomaly Detector", version="1.0.0", lifespan=lifespan)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 # --- Schemas ---
