@@ -1,5 +1,35 @@
+import { useState, useEffect } from 'react'
+import api from '../api'
+
 export default function CRM() {
-  const fournisseurs = []
+  const [fournisseurs, setFournisseurs] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await api.get('/api/silver')
+        setFournisseurs(res.data)
+      } catch (err) {
+        console.error('Erreur lors du chargement des données silver :', err)
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchData()
+  }, [])
+
+  const formatDate = (value) => {
+    if (!value) return '—'
+    const d = new Date(value)
+    if (isNaN(d)) return value
+    return d.toLocaleDateString('fr-FR')
+  }
+
+  const formatMontant = (value) => {
+    if (value === null || value === undefined) return '—'
+    return Number(value).toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €'
+  }
 
   return (
     <div style={{ padding: '30px', color: 'white' }}>
@@ -13,16 +43,23 @@ export default function CRM() {
         <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
           <thead>
             <tr style={{ backgroundColor: '#85a7f0', color: '#000000', fontSize: '13px' }}>
-              <th style={{ padding: '12px 20px' }}>Entreprise</th>
               <th style={{ padding: '12px 20px' }}>SIRET</th>
-              <th style={{ padding: '12px 20px' }}>N° TVA</th>
-              <th style={{ padding: '12px 20px' }}>Email</th>
-              <th style={{ padding: '12px 20px' }}>Téléphone</th>
-              <th style={{ padding: '12px 20px' }}>Statut</th>
+              <th style={{ padding: '12px 20px' }}>TVA</th>
+              <th style={{ padding: '12px 20px' }}>Montant HT</th>
+              <th style={{ padding: '12px 20px' }}>Montant TTC</th>
+              <th style={{ padding: '12px 20px' }}>Date d'émission</th>
+              <th style={{ padding: '12px 20px' }}>Expiration</th>
+              <th style={{ padding: '12px 20px' }}>IBAN</th>
             </tr>
           </thead>
           <tbody>
-            {fournisseurs.length === 0 ? (
+            {loading ? (
+              <tr>
+                <td colSpan="7" style={{ padding: '60px 20px', textAlign: 'center' }}>
+                  <p style={{ color: '#6b7280', fontSize: '16px' }}>Chargement...</p>
+                </td>
+              </tr>
+            ) : fournisseurs.length === 0 ? (
               <tr>
                 <td colSpan="7" style={{ padding: '60px 20px', textAlign: 'center' }}>
                   <p style={{ color: '#9ca3af', fontSize: '16px', fontWeight: '500' }}>Aucun fournisseur pour le moment</p>
@@ -31,24 +68,14 @@ export default function CRM() {
               </tr>
             ) : (
               fournisseurs.map((f) => (
-                <tr key={f.id} style={{ borderTop: '1px solid #374151' }}>
-                  <td style={{ padding: '14px 20px', fontWeight: '500' }}>{f.nom}</td>
-                  <td style={{ padding: '14px 20px', color: '#d1d5db' }}>{f.siret}</td>
-                  <td style={{ padding: '14px 20px', color: '#d1d5db' }}>{f.tva}</td>
-                  <td style={{ padding: '14px 20px', color: '#d1d5db' }}>{f.email}</td>
-                  <td style={{ padding: '14px 20px', color: '#d1d5db' }}>{f.telephone}</td>
-                  <td style={{ padding: '14px 20px' }}>
-                    <span style={{
-                      padding: '4px 10px',
-                      borderRadius: '20px',
-                      fontSize: '12px',
-                      fontWeight: '500',
-                      backgroundColor: f.statut === 'Actif' ? 'rgba(34,197,94,0.2)' : 'rgba(239,68,68,0.2)',
-                      color: f.statut === 'Actif' ? '#4ade80' : '#f87171'
-                    }}>
-                      {f.statut}
-                    </span>
-                  </td>
+                <tr key={f._id || f.document_id} style={{ borderTop: '1px solid #374151' }}>
+                  <td style={{ padding: '14px 20px', color: '#1f2937', fontWeight: '500' }}>{f.siret || '—'}</td>
+                  <td style={{ padding: '14px 20px', color: '#374151' }}>{f.tva ?? f.montant_tva ?? '—'}</td>
+                  <td style={{ padding: '14px 20px', color: '#374151' }}>{formatMontant(f.montant_ht)}</td>
+                  <td style={{ padding: '14px 20px', color: '#374151' }}>{formatMontant(f.montant_ttc)}</td>
+                  <td style={{ padding: '14px 20px', color: '#374151' }}>{formatDate(f.date_emission || f.date_document)}</td>
+                  <td style={{ padding: '14px 20px', color: '#374151' }}>{formatDate(f.expiration)}</td>
+                  <td style={{ padding: '14px 20px', color: '#374151' }}>{f.iban || '—'}</td>
                 </tr>
               ))
             )}
