@@ -6,6 +6,8 @@ from fastapi import BackgroundTasks, FastAPI, HTTPException
 from pydantic import BaseModel
 
 from flows import analyze_session_flow
+from collections import Counter
+
 from mongo_client import fetch_all_gold, fetch_gold_by_session, get_db, save_bronze
 
 
@@ -86,6 +88,33 @@ def get_session_results(session_id: str):
     if not results:
         raise HTTPException(status_code=404, detail="Session introuvable ou non encore traitee")
     return results
+
+
+@app.get("/stats")
+def get_stats():
+    all_results = fetch_all_gold()
+    if not all_results:
+        return {"total": 0, "fraud_count": 0, "fraud_rate": 0, "avg_risk_score": 0, "top_anomaly": None}
+
+    total = len(all_results)
+    fraud_count = sum(1 for r in all_results if r.get('fraud_detected'))
+    fraud_rate = round(fraud_count / total * 100, 1)
+    scores = [r.get('risk_score', 0) for r in all_results]
+    avg_risk_score = round(sum(scores) / len(scores), 1)
+
+    all_issues = [issue for r in all_results for issue in r.get('issues', [])]
+    top_anomaly = None
+    if all_issues:
+        prefixes = [i.split(':')[0].strip() for i in all_issues]
+        top_anomaly = Counter(prefixes).most_common(1)[0][0]
+
+    return {
+        "total": total,
+        "fraud_count": fraud_count,
+        "fraud_rate": fraud_rate,
+        "avg_risk_score": avg_risk_score,
+        "top_anomaly": top_anomaly,
+    }
 
 
 @app.get("/health")

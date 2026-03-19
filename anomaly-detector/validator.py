@@ -61,21 +61,42 @@ def _cross_siret_issues(documents: list[dict]) -> list[str]:
     return []
 
 
+ISSUE_WEIGHTS = {
+    'siret': 40,
+    'tva_rate': 25,
+    'amounts': 25,
+    'expiry': 10,
+}
+
+
+def _compute_risk_score(issues_by_type: dict) -> int:
+    score = 0
+    if issues_by_type.get('siret'):
+        score += ISSUE_WEIGHTS['siret']
+    if issues_by_type.get('tva_rate'):
+        score += ISSUE_WEIGHTS['tva_rate']
+    if issues_by_type.get('amounts'):
+        score += ISSUE_WEIGHTS['amounts']
+    if issues_by_type.get('expiry'):
+        score += ISSUE_WEIGHTS['expiry']
+    return min(score, 100)
+
+
 def analyze_document(doc: dict) -> dict:
-    issues = []
-    for issue in [
-        validate_siret(doc.get('siret')),
-        validate_tva_rate(doc.get('tva')),
-        validate_amounts(doc.get('montant_ht'), doc.get('tva'), doc.get('montant_ttc')),
-        validate_expiry(doc.get('date_expiration'), doc.get('type', '')),
-    ]:
-        if issue:
-            issues.append(issue)
+    issues_by_type = {
+        'siret': validate_siret(doc.get('siret')),
+        'tva_rate': validate_tva_rate(doc.get('tva')),
+        'amounts': validate_amounts(doc.get('montant_ht'), doc.get('tva'), doc.get('montant_ttc')),
+        'expiry': validate_expiry(doc.get('date_expiration'), doc.get('type', '')),
+    }
+    issues = [v for v in issues_by_type.values() if v]
+    risk_score = _compute_risk_score(issues_by_type)
 
     return {
         'document_id': doc['document_id'],
         'status': 'fraud_suspected' if issues else 'validated',
         'fraud_detected': bool(issues),
+        'risk_score': risk_score,
         'issues': issues,
         'validated_at': datetime.utcnow(),
     }
