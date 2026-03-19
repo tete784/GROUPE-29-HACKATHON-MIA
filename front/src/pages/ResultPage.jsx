@@ -16,7 +16,7 @@ function ResultPage() {
 
       try {
         const token = localStorage.getItem('token')
-        const res = await fetch(`http://localhost:8001/api/results/${sessionId}`, {
+        const res = await fetch(`http://localhost:8001/results/${sessionId}`, {
           headers: {
             'Authorization': `Bearer ${token}`
           }
