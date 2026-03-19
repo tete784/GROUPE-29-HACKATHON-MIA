@@ -9,7 +9,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from ocr_engine import extraire_texte
 
-ANOMALY_DETECTOR_URL = os.getenv("ANOMALY_DETECTOR_URL", "http://localhost:8001/ingest")
+ANOMALY_DETECTOR_URL = os.getenv("ANOMALY_DETECTOR_URL", "http://anomaly-detector:8001/ingest")
 
 app = FastAPI(title="OCR Service", version="1.0.0")
 
@@ -99,4 +99,4 @@ async def extract_and_ingest(
 
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", port=int(os.getenv("PORT", 8000)), reload=True)
+    uvicorn.run("main:app", host="0.0.0.0", port=int(os.getenv("PORT", 5003)), reload=True)
